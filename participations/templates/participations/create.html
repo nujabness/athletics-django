@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css">
+</head>
+<body>
+{% include "athletics/header.html" %}
+<section class="section">
+   <div class="container">
+      <div class="columns">
+         <div class="column is-one-quarter">
+            {% include "athletics/nav.html" %}
+         </div>
+         <div class="column">
+            <h2>Participation</h2>
+            <form method="post">
+               {% csrf_token %}
+               <div class="field">
+                  <label class="label">{{ form.athlete.label_tag}}</label>
+                  <div class="control">
+                     {{ form.athlete}}
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">{{ form.epreuve.label_tag }}</label>
+                  <div class="control">
+                     {{ form.epreuve}}
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">{{ form.medaille.label_tag }}</label>
+                  <div class="control">
+                     {{ form.medaille}}
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">{{ form.resultat.label_tag }}</label>
+                  <div class="control">
+                     {{ form.resultat}}
+                  </div>
+               </div>
+               <input type="submit" value="Save" class="button is-info"/>
+               <a class="button is-danger" href="/participations/operations">Retour</a>
+            </form>
+         </div>
+      </div>
+   </div>
+</section>
+
+</body>
+</html>

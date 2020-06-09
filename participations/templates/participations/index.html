@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css">
+</head>
+<body>
+{% include "athletics/header.html" %}
+<section class="section">
+   <div class="container">
+      <div class="columns">
+         <div class="column is-one-quarter">
+            {% include "athletics/nav.html" %}
+         </div>
+         <div class="column">
+            <h2>Participations</h2>
+            <table class="table is-striped">
+               <thead>
+               <tr>
+                  <th>Nom Athlète</th>
+                  <th>Prenom Athlète</th>
+                  <th>Sexe Athlète</th>
+                  <th>Nationalité</th>
+                  <th>Nom Epreuve</th>
+                  <th>Type Epreuve</th>
+                  <th>Résultat</th>
+                  <th>Médaille</th>
+               </tr>
+               </thead>
+               <tbody>
+               {% for participation in participations %}
+               <tr>
+                  <td>{{participation.athlete.nom_athlete}}</td>
+                  <td>{{participation.athlete.prenom_athlete}}</td>
+                  <td>{{participation.athlete.sexe_athlete}}</td>
+                  <td>{{participation.athlete.nationalite_athlete}}</td>
+                  <td>{{participation.epreuve.nom_epreuve}}</td>
+                  <td>{{participation.epreuve.type_epreuve}}</td>
+                  <td>{{participation.resultat}}</td>
+                  <td>{{participation.medaille.nom_medaille}}</td>
+               </tr>
+               {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</section>
+
+</body>
+</html>

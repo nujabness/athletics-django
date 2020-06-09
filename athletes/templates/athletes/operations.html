@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css">
+</head>
+<body>
+{% include "athletics/header.html" %}
+<section class="section">
+   <div class="container">
+      <div class="columns">
+         <div class="column is-one-quarter">
+            {% include "athletics/nav.html" %}
+         </div>
+         <div class="column">
+            <h2>Athletes</h2>
+            <a class="button is-danger" href="/athletes/create">Create</a>
+            <table class="table is-striped">
+               <thead>
+               <tr>
+                  <th>Nom Athlète</th>
+                  <th>Prenom Athlète</th>
+                  <th>Sexe Athlète</th>
+                  <th>Nationalite</th>
+                  <th>Supprimer</th>
+                  <th>Modifier</th>
+               </tr>
+               </thead>
+               <tbody>
+                  {% for athlete in athletes %}
+                     <tr>
+                        <td>{{athlete.nom_athlete}}</td>
+                        <td>{{athlete.prenom_athlete}}</td>
+                        <td>{{athlete.sexe_athlete}}</td>
+                        <td>{{athlete.nationalite_athlete}}</td>
+                        <td><a class="button is-danger" href="/athletes/delete/{{ athlete.id }}">Supprimer</a></td>
+                        <td><a class="button is-warning" href="/athletes/update/{{ athlete.id }}">Mise à jour</a></td>
+                     </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</section>
+
+</body>
+</html>

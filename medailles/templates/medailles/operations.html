@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css">
+</head>
+<body>
+{% include "athletics/header.html" %}
+<section class="section">
+   <div class="container">
+      <div class="columns">
+         <div class="column is-one-quarter">
+            {% include "athletics/nav.html" %}
+         </div>
+         <div class="column">
+            <h3>Médailles</h3>
+            <a class="button is-danger" href="/medailles/create">Create</a>
+            <div class="columns is-multiline">
+               {% for medaille in medailles %}
+               <div class="column is-one-quarter">
+                  <div class="card">
+                     <div class="card-content">
+                        <div class="media">
+                           <div class="media-left">
+                              <figure class="image is-48x48">
+                                 <img src="{{ medaille.link_medaille }}"/>
+                              </figure>
+                           </div>
+                           <div class="media-content">
+                              <p class="title is-4">{{medaille.nom_medaille}}</p>
+                              <a class="button is-danger" href="/medailles/delete/{{ medaille.id }}">Supprimer</a>
+                              <a class="button is-warning" href="/medailles/update/{{ medaille.id }}">Mise à jour</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+</body>
+</html>
