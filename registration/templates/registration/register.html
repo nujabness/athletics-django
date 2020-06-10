@@ -15,27 +15,37 @@
             <form action="" method="POST" class="box">
                {% csrf_token %}
                <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control has-icons-left">
-                     <input id="email" type="email" placeholder="e.g. john.smith@gmail.com" class="input"/>
-                     <span class="icon is-small is-left">
-                         <i class="fa fa-envelope"/>
-                     </span>
+                  <label class="label">{{form.username.label}}</label>
+                  <div class="control">
+                     {{form.username}}
                   </div>
                </div>
                <div class="field">
-                  <label class="label">Password</label>
-                  <div class="control has-icons-left">
-                     <input id="password" type="password" placeholder="*******" class="input"/>
-                     <span class="icon is-small is-left">
-                        <i class="fa fa-lock"></i>
-                     </span>
+                  <label class="label">{{form.email.label}}</label>
+                  <div class="control">
+                     {{form.email}}
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">{{form.password1.label}}</label>
+                  <div class="control">
+                     {{form.password1}}
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">{{form.password2.label}}</label>
+                  <div class="control">
+                     {{form.password2}}
                   </div>
                </div>
                <div class="field has-text-right">
                   <button type="submit" class="button is-info">Register</button>
+                  <a href="/login" class="button is-danger">Login</a>
                </div>
             </form>
+
+            {{form.errors}}
+
          </div>
       </div>
    </div>

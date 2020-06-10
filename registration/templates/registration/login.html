@@ -12,11 +12,12 @@
    <div class="container">
       <div class="columns is-centered">
          <div class="column is-half">
-            <form action="" class="box">
+            <form method="POST" action="" class="box">
+               {% csrf_token %}
                <div class="field">
                   <label class="label">Email</label>
                   <div class="control has-icons-left">
-                     <input id="email" type="email" placeholder="e.g. john.smith@gmail.com" class="input"/>
+                     <input id="username" type="text" name="username" placeholder="e.g. johnsmith" class="input"/>
                      <span class="icon is-small is-left">
                          <i class="fa fa-envelope"/>
                      </span>
@@ -25,16 +26,20 @@
                <div class="field">
                   <label class="label">Password</label>
                   <div class="control has-icons-left">
-                     <input id="password" type="password" placeholder="*******" class="input"/>
+                     <input id="password" type="password" name="password" placeholder="*******" class="input"/>
                      <span class="icon is-small is-left">
                         <i class="fa fa-lock"></i>
                      </span>
                   </div>
                </div>
                <div class="field has-text-right">
-                  <button type="submit" class="button is-info">Login</button>
+                  <button type="submit" class="button is-danger">Login</button>
+                  <a href="/register" class="button is-info">Register</a>
                </div>
             </form>
+            {% for message in messages %}
+               <p id="messages">{{message}}</p>
+            {% endfor %}
          </div>
       </div>
    </div>
